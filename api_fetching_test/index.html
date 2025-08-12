@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Anime Image</title>
+</head>
+<body>
+  <div>
+    <button id="btn-get" class="bg-light">Get ur goon images</button>
+    <div id="image-container">
+      <p id="fact">No bitches?</p>
+    </div>
+  </div>
+
+  <script>
+    async function startup() {
+      const response = await fetch("https://api.waifu.im/search");
+      const data = await response.json();
+        console.log(data);
+
+        const imageUrl = data.images[0].url;
+
+        const container = document.querySelector("#image-container");
+        container.innerHTML = `<img src="${imageUrl}" style="width=100" alt="waifu" width="300" />`;
+      } 
+  
+
+    document.querySelector("#btn-get").addEventListener("click", startup);
+  </script>
+</body>
+</html>
