@@ -1,0 +1,1 @@
+SELECT * FROM game_reviews_db.games;
